@@ -2,38 +2,89 @@
 
 
 
-This repository contains a simple `bashrc.sh` script that automatically customizes and enhances your terminal experience.
+##Debian VM Bootstrap & Bash-Konfiguration
 
-## Installation
+Dieses Skript automatisiert die Ersteinrichtung einer Debian-VM (getestet auf Debian 12 & 13) und verwandelt eine Standard-Shell in eine moderne, produktive Entwicklungsumgebung.
 
-1. Clone the repository:
+Was macht dieses Skript?
 
-```bash
-git clone <https://github.com/sudoAndro/linux-starter-kit.git>
-```
+##Das Skript führt bei der ersten Ausführung eine vollständige Systemoptimierung durch:
 
-2. Open your `.bashrc` file:
+1. System-Update & Basis-Pakete
 
-```bash
-nano ~/.bashrc
-```
+    Aktualisiert das gesamte System (apt full-upgrade).
 
-3. Add this line at the bottom:
+    Installiert essenzielle Werkzeuge: git, curl, wget, htop, tmux, neovim, jq, unzip, net-tools u.v.m.
 
-```bash
-source /path/to/bashrc.sh
-```
 
-4. Save the file and reload your terminal:
+2. Moderne CLI-Tools (Modern Unix)
 
-```bash
-bash
-```
+Es installiert und konfiguriert moderne Alternativen zu Standard-Befehlen:
 
-Or run:
+    eza: Ein verbesserter Ersatz für ls mit Icons und Git-Status.
 
-```bash
-source ~/.bashrc
-```
+    bat: Ein cat-Klon mit Syntax-Highlighting.
 
-That's it — the script will now automatically apply all configured changes and features.
+    fzf: Ein interaktiver Fuzzy-Finder für die Kommandozeile.
+
+    zoxide: Ein intelligenter cd-Ersatz, der lernt, in welche Verzeichnisse du oft springst.
+
+    fastfetch: Zeigt Systeminformationen beim Login schick an.
+
+
+3. Optik & Komfort
+
+    Starship Prompt: Ein extrem schneller, anpassbarer Shell-Prompt (zweizeilig).
+
+    Nerd Fonts: Installiert automatisch die "JetBrainsMono" Nerd Font für korrekte Icon-Darstellung.
+
+    FZF-Integration: Inklusive Farbschema (Catppuccin Mocha) und Tastenkürzeln.
+
+
+4. Nützliche Aliase & Funktionen
+
+    Viele Shortcuts für Git (gs, gp, gc), Navigation (.., ...) und Systemverwaltung (update).
+
+    extract: Eine Funktion, die fast jedes Archivformat automatisch erkennt und entpackt.
+
+    mkcd: Verzeichnis erstellen und sofort hineinwechseln.
+
+    show_system_info: Eine grafische Übersicht über IP, Auslastung und Temperatur.
+
+
+##Installation
+
+Folge diesen Schritten, um das Skript in deiner VM zu aktivieren:
+
+    Skript herunterladen:
+    Lade die Datei bashrc.sh in dein Home-Verzeichnis (/home/dein-nutzer/).
+
+    Skript ausführbar machen:
+    Bash
+
+    chmod +x ~/bashrc.sh
+
+    In die .bashrc einbinden:
+    Öffne deine originale .bashrc Datei:
+    Bash
+
+    nano ~/.bashrc
+
+    Füge ganz am Ende der Datei folgende Zeile hinzu:
+    Bash
+
+    [ -f "$HOME/bashrc.sh" ] && source "$HOME/bashrc.sh"
+
+    Shell neu starten:
+    Schließe das Terminal und öffne es neu, oder tippe:
+    Bash
+
+    source ~/.bashrc
+
+Beim ersten Start wird das Skript automatisch das komplette Setup (Installation der Pakete) durchführen. Danach steht dir die neue Konfiguration sofort zur Verfügung.
+Reset
+
+##Falls du das Setup erneut erzwingen möchtest (z.B. nach einem Fehler), nutze den Befehl:
+Bash
+
+vm-setup-reset
