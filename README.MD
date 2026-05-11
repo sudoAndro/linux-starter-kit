@@ -2,13 +2,13 @@
 
 
 
-##Debian VM Bootstrap & Bash-Konfiguration
+## Debian VM Bootstrap & Bash-Konfiguration
 
 Dieses Skript automatisiert die Ersteinrichtung einer Debian-VM (getestet auf Debian 12 & 13) und verwandelt eine Standard-Shell in eine moderne, produktive Entwicklungsumgebung.
 
 Was macht dieses Skript?
 
-##Das Skript führt bei der ersten Ausführung eine vollständige Systemoptimierung durch:
+## Das Skript führt bei der ersten Ausführung eine vollständige Systemoptimierung durch:
 
 1. System-Update & Basis-Pakete
 
@@ -19,7 +19,7 @@ Was macht dieses Skript?
 
 2. Moderne CLI-Tools (Modern Unix)
 
-Es installiert und konfiguriert moderne Alternativen zu Standard-Befehlen:
+Es installiert und konfiguriert moderne Alternativen zu Standard-Befehlen
 
     eza: Ein verbesserter Ersatz für ls mit Icons und Git-Status.
 
@@ -52,31 +52,31 @@ Es installiert und konfiguriert moderne Alternativen zu Standard-Befehlen:
     show_system_info: Eine grafische Übersicht über IP, Auslastung und Temperatur.
 
 
-##Installation
+## Installation
 
-Folge diesen Schritten, um das Skript in deiner VM zu aktivieren:
+Folge diesen Schritten, um das Skript in deiner VM zu aktivieren
 
-    Skript herunterladen:
+    Skript herunterladen
     Lade die Datei bashrc.sh in dein Home-Verzeichnis (/home/dein-nutzer/).
 
-    Skript ausführbar machen:
+    Skript ausführbar machen
     Bash
 
     chmod +x ~/bashrc.sh
 
-    In die .bashrc einbinden:
-    Öffne deine originale .bashrc Datei:
+    In die .bashrc einbinden
+    Öffne deine originale .bashrc Datei
     Bash
 
     nano ~/.bashrc
 
-    Füge ganz am Ende der Datei folgende Zeile hinzu:
+    Füge ganz am Ende der Datei folgende Zeile hinzu
     Bash
 
     [ -f "$HOME/bashrc.sh" ] && source "$HOME/bashrc.sh"
 
-    Shell neu starten:
-    Schließe das Terminal und öffne es neu, oder tippe:
+    Shell neu starten
+    Schließe das Terminal und öffne es neu, oder tippe
     Bash
 
     source ~/.bashrc
@@ -84,7 +84,7 @@ Folge diesen Schritten, um das Skript in deiner VM zu aktivieren:
 Beim ersten Start wird das Skript automatisch das komplette Setup (Installation der Pakete) durchführen. Danach steht dir die neue Konfiguration sofort zur Verfügung.
 Reset
 
-##Falls du das Setup erneut erzwingen möchtest (z.B. nach einem Fehler), nutze den Befehl:
+## Falls du das Setup erneut erzwingen möchtest (z.B. nach einem Fehler), nutze den Befehl:
 Bash
 
 vm-setup-reset
