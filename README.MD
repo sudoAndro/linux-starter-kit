@@ -1,3 +1,7 @@
+![Preview](images/result.png)
+
+
+
 This repository contains a simple `bashrc.sh` script that automatically customizes and enhances your terminal experience.
 
 ## Installation
