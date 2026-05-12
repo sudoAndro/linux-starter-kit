@@ -1,92 +1,101 @@
 ![Preview](images/result.png)
 
-Dateiname: bashrc.sh
+## Ein mächtiges, einheitliches Bash-Setup für Debian 12 und Debian 13 VMs (und Bare-Metal Systeme), das deine Shell extrem angenehm und produktiv macht.
 
-Debian VM Bootstrap & Bash-Konfiguration
+![Starship Prompt](https://img.shields.io/badge/Prompt-Starship-blue)
+![Debian](https://img.shields.io/badge/Debian-12%20%7C%2013-red)
+![License](https://img.shields.io/badge/License-MIT-green)
 
-Dieses Skript automatisiert die Ersteinrichtung einer Debian-VM (getestet auf Debian 12 & 13) und verwandelt eine Standard-Shell in eine moderne, produktive Entwicklungsumgebung.
-Was macht dieses Skript?
+## ✨ Was macht dieses Skript?
 
-Das Skript führt bei der ersten Ausführung eine vollständige Systemoptimierung durch:
-1. System-Update & Basis-Pakete
+Dieses `bashrc.sh` ist weit mehr als nur eine normale `.bashrc`. Es ist ein **komplettes Bootstrap- & Konfigurationssystem**, das:
 
-    Aktualisiert das gesamte System (apt full-upgrade).
+### Einmaliges Setup (beim ersten Start)
 
-    Installiert essenzielle Werkzeuge: git, curl, wget, htop, tmux, neovim, jq, unzip, net-tools u.v.m.
+- Aktualisiert das komplette System
+- Installiert eine umfangreiche Sammlung moderner Tools:
+  - **eza** (modernes `ls` mit Icons)
+  - **Starship** (wunderschöner, schneller Prompt)
+  - **Fastfetch** (neofetch-Nachfolger)
+  - **Nerd Font** (JetBrainsMono)
+  - **fzf, ripgrep, bat, zoxide, btop, neovim, fd-find** uvm.
+- Erstellt optimierte Konfigurationen für Starship und Fastfetch
+- Richtet deutsche Locale ein
 
-2. Moderne CLI-Tools (Modern Unix)
+### Permanente Verbesserungen
 
-Es installiert und konfiguriert moderne Alternativen zu Standard-Befehlen:
+- Sehr schöner, informativer **zweizeiliger Starship-Prompt**
+- Über 80 praktische **Aliase** (Git, System, Navigation, Netzwerk…)
+- Nützliche **Funktionen** (`mkcd`, `extract`, `f`, `show_system_info` etc.)
+- Smarte History-Einstellungen
+- `fzf` Integration mit Catppuccin-Design
+- `zoxide` (intelligentes `cd`)
+- Automatische Anzeige von System-Info beim Öffnen eines neuen Terminals
 
-    eza: Ein verbesserter Ersatz für ls mit Icons und Git-Status.
 
-    bat: Ein cat-Klon mit Syntax-Highlighting.
+## Installation
 
-    fzf: Ein interaktiver Fuzzy-Finder für die Kommandozeile.
+### 1. Skript herunterladen und installieren
+```bash
+curl -fsSL https://raw.githubusercontent.com/sudoAndro/linux-starter-kit/refs/heads/main/bashrc.sh -o "$HOME/bashrc.sh" && chmod +x "$HOME/bashrc.sh" && (grep -qxF 'source "$HOME/bashrc.sh"' "$HOME/.bashrc" || echo 'source "$HOME/bashrc.sh"' >> "$HOME/.bashrc") && source "$HOME/bashrc.sh"
+```
 
-    zoxide: Ein intelligenter cd-Ersatz, der lernt, in welche Verzeichnisse du oft springst.
+## Installation standart weg
 
-    fastfetch: Zeigt Systeminformationen beim Login schick an.
+# Empfohlener Speicherort
+```bash
+git clone https://github.com/sudoAndro/linux-starter-kit.git
+chmod +x ~/bashrc.sh
+```
+2. In deine .bashrc einbinden
+Füge am Ende deiner ~/.bashrc folgende Zeile hinzu:
+Bash# === Meine erweiterte Bash-Konfiguration ===
+[ -f "$HOME/bashrc.sh" ] && source "$HOME/bashrc.sh"
 
-3. Optik & Komfort (Appearance & Comfort)
+3. Einloggen / Terminal neu starten
+Beim nächsten Öffnen eines Terminals wird das Setup automatisch einmalig ausgeführt (kann einige Minuten dauern).
 
-    Starship Prompt: Ein extrem schneller, anpassbarer Shell-Prompt (zweizeilig).
 
-    Nerd Fonts: Installiert automatisch die "JetBrainsMono" Nerd Font für korrekte Icon-Darstellung.
+## Setup zurücksetzen
 
-    FZF-Integration: Inklusive Farbschema (Catppuccin Mocha) sowie praktische Tastenkürzel (z.B. Strg+R für Befehlshistorie, Strg+T für Dateisuche, Alt+C für Verzeichniswechsel).
+Falls du das komplette Setup neu ausführen möchtest:
+```bash
+Bashvm-setup-reset
+```
+Danach Terminal schließen und neu öffnen.
 
-4. Nützliche Aliase & Funktionen
 
-    Viele Shortcuts für Git (gs, gp, gc), Navigation (.., ...) und Systemverwaltung (update).
+## Verfügbare Aliase & Befehle (Auszug)
 
-    extract: Eine Funktion, die fast jedes Archivformat automatisch erkennt und entpackt.
+Navigation
+.., ..., ...., home, -
+Dateien & Anzeige
+ls, l, ll, la, lt, lta, lg (mit Git-Status), cat → bat
+System
+update, install, remove, search, fixbroken, top (btop/htop), disk (ncdu)
+Netzwerk
+myip, myip6, ports, wetter, wetterv
+Git
+gs, ga, gaa, gc, gcm, gp, gpl, gl, gd usw.
+Funktionen
 
-    mkcd: Verzeichnis erstellen und sofort hineinwechseln.
+mkcd <ordner> → Ordner erstellen + wechseln
+extract datei.tar.gz → automatisches Entpacken
+f [suchbegriff] → fuzzy Suche mit Vorschau
+show_system_info → schöne Systemübersicht
+aliases → Übersicht aller Aliase
 
-    show_system_info: Eine grafische Übersicht über IP, Auslastung und Temperatur.
 
-Installation
+## Voraussetzungen
 
-Folge diesen Schritten, um das Skript in deiner VM zu aktivieren:
+Debian 12 oder 13 (getestet)
+sudo-Rechte
+Internetverbindung (beim ersten Start)
 
-    Skript herunterladen:
-    Lade die Datei bashrc.sh in dein Home-Verzeichnis (/home/dein-nutzer/).
 
-    Skript ausführbar machen:
-    ```
-    Bash
-    ```
+📝 Lizenz
+MIT License – frei verwendbar und anpassbar.
 
-    chmod +x ~/bashrc.sh
+Made with ❤️ für alle, die sich in der Shell wohlfühlen wollen.
 
-    In die .bashrc einbinden:
-    Öffne deine originale .bashrc Datei:
-    ```
-    Bash
-    ```
-
-    nano ~/.bashrc
-
-    Füge ganz am Ende der Datei folgende Zeile hinzu:
-    ```
-    Bash
-    ```
-
-    [ -f "$HOME/bashrc.sh" ] && source "$HOME/bashrc.sh"
-
-    Shell neu starten:
-
-## Bash
-
-Reset
-
-Falls du das Setup erneut erzwingen möchtest (z.B. nach einem Fehler), nutze den Befehl:
-    ```
-
-    source ~/.bashrc
-
-Beim ersten Start wird das Skript automatisch das komplette Setup (Installation der Pakete) durchführen. Danach steht dir die neue Konfiguration sofort zur Verfügung.
-Reset
-
-Falls du das Setup erneut erzwingen möchtest (z.B. nach einem Fehler), nutze den Befehl: vm-setup-reset
+### Created by: sudoAndro
